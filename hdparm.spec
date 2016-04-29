@@ -4,7 +4,7 @@
 #
 Name     : hdparm
 Version  : 9.48
-Release  : 2
+Release  : 3
 URL      : http://downloads.sourceforge.net/project/hdparm/hdparm/hdparm-9.48.tar.gz
 Source0  : http://downloads.sourceforge.net/project/hdparm/hdparm/hdparm-9.48.tar.gz
 Summary  : No detailed summary available
