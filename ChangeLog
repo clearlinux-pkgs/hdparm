@@ -1,3 +1,16 @@
+hdparm-9.51:
+	- New --security-prompt-for-password flag for use with the various --security- actions.
+	- Makefile tweak from Mike Frysinger.
+	- fix spelling/typos in man page and "removable", courtesy of Alex Mestiashvili.
+	- fix spelling/typos in --sanitize-crypto-scramble, courtesy of Tom Yan.
+	- fix NULL password handling in --security-unlock, courtesy of Tom Yan.
+hdparm-9.50:
+	- minor fixes for sanitize device stuff.
+hdparm-9.49:
+	- add ACS-3 overprovisioning support, courtesy of Intel.
+	- fix bug in display of security section and use updated erase-time values from ACS-3, courtesy of Patrick Higgins.
+	- increase timeout on fwdownload to 2 minutes, courtesy of Rusy Carruth.
+	- fix bugs from devslp patch.
 hdparm-9.48:
 	- fix bugs from devslp patch.
 hdparm-9.47:
