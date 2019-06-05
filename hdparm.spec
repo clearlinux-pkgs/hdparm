@@ -4,7 +4,7 @@
 #
 Name     : hdparm
 Version  : 9.58
-Release  : 14
+Release  : 15
 URL      : https://sourceforge.net/projects/hdparm/files/hdparm/hdparm-9.58.tar.gz
 Source0  : https://sourceforge.net/projects/hdparm/files/hdparm/hdparm-9.58.tar.gz
 Summary  : No detailed summary available
