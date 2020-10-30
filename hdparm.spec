@@ -4,7 +4,7 @@
 #
 Name     : hdparm
 Version  : 9.58
-Release  : 15
+Release  : 16
 URL      : https://sourceforge.net/projects/hdparm/files/hdparm/hdparm-9.58.tar.gz
 Source0  : https://sourceforge.net/projects/hdparm/files/hdparm/hdparm-9.58.tar.gz
 Summary  : No detailed summary available
@@ -22,7 +22,6 @@ These files were contributed by various users.
 Summary: bin components for the hdparm package.
 Group: Binaries
 Requires: hdparm-license = %{version}-%{release}
-Requires: hdparm-man = %{version}-%{release}
 
 %description bin
 bin components for the hdparm package.
@@ -46,22 +45,32 @@ man components for the hdparm package.
 
 %prep
 %setup -q -n hdparm-9.58
+cd %{_builddir}/hdparm-9.58
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1540564821
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604094348
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
+
 %install
-export SOURCE_DATE_EPOCH=1540564821
+export SOURCE_DATE_EPOCH=1604094348
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/hdparm
-cp LICENSE.TXT %{buildroot}/usr/share/package-licenses/hdparm/LICENSE.TXT
-cp debian/copyright %{buildroot}/usr/share/package-licenses/hdparm/debian_copyright
-cp wiper/GPLv2.txt %{buildroot}/usr/share/package-licenses/hdparm/wiper_GPLv2.txt
+cp %{_builddir}/hdparm-9.58/LICENSE.TXT %{buildroot}/usr/share/package-licenses/hdparm/88e79deadef14cb3a3ca419bb731f1deb5ffa7c3
+cp %{_builddir}/hdparm-9.58/debian/copyright %{buildroot}/usr/share/package-licenses/hdparm/521ecd1edcba0923d0ffbf7ae9af6726d97afe78
+cp %{_builddir}/hdparm-9.58/wiper/GPLv2.txt %{buildroot}/usr/share/package-licenses/hdparm/ef1bcf369e4124b5f2558fefee17972f41b76cab
 %make_install
 
 %files
@@ -73,9 +82,9 @@ cp wiper/GPLv2.txt %{buildroot}/usr/share/package-licenses/hdparm/wiper_GPLv2.tx
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/hdparm/LICENSE.TXT
-/usr/share/package-licenses/hdparm/debian_copyright
-/usr/share/package-licenses/hdparm/wiper_GPLv2.txt
+/usr/share/package-licenses/hdparm/521ecd1edcba0923d0ffbf7ae9af6726d97afe78
+/usr/share/package-licenses/hdparm/88e79deadef14cb3a3ca419bb731f1deb5ffa7c3
+/usr/share/package-licenses/hdparm/ef1bcf369e4124b5f2558fefee17972f41b76cab
 
 %files man
 %defattr(0644,root,root,0755)
