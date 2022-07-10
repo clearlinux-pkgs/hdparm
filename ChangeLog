@@ -1,4 +1,6 @@
 hdparm-9.63:
+	- fix truncated output buf with --Istdin
+hdparm-9.63:
 	- new --sanitize-overwrite-passes flag, courtesy Michal Grzedzicki.
 	- "Plurals patch" from Martin Guy.
 hdparm-9.62:
